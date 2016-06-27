@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="OnBoarderPageLayout_LayoutParams">
+        <attr name="view_behavior" format="string" />
+        <attr name="destiny" format="reference" />
+    </declare-styleable>
+    <declare-styleable name="OnBoarderCoordinatorLayout">
+        <attr name="indicatorUnselected" format="color" />
+        <attr name="indicatorSelected" format="color" />
+        <attr name="showIndicators" format="boolean" />
+        <attr name="scrollingEnabled" format="boolean" />
+    </declare-styleable>
+</resources>
