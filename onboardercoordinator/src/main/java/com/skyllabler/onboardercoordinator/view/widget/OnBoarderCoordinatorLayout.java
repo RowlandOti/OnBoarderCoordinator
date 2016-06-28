@@ -26,8 +26,6 @@ import java.util.List;
 
 public class OnBoarderCoordinatorLayout extends HorizontalScrollView {
 
-    public static final boolean ANIMATED = true;
-    public static final boolean INANIMATED = false;
     public static final int WITHOUT_MARGIN = 0;
     public static final int RADIUS = 12;
     public static final int RADIUS_MARGIN = 30;
