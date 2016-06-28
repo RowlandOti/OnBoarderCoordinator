@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.skyllabler.onboardercoordinator.views.widget.OnBoarderPageLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.skyllabler.onboardercoordinator.view.widget.OnBoarderPageLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/welcome_page"
@@ -94,4 +94,4 @@
         android:text="Easily organize projects \nand delegate work."
         app:view_behavior=".view.behaviour.ParallaxSubtitleBehaviour" />
 
-</com.skyllabler.onboardercoordinator.views.widget.OnBoarderPageLayout>
+</com.skyllabler.onboardercoordinator.view.widget.OnBoarderPageLayout>

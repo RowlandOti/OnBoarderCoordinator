@@ -30,8 +30,8 @@ import android.view.animation.AccelerateInterpolator;
 import android.view.animation.LinearInterpolator;
 
 import com.skyllabler.onboardercoordinator.sample.R;
-import com.skyllabler.onboardercoordinator.views.behaviour.OnBoarderPageBehaviour;
-import com.skyllabler.onboardercoordinator.views.widget.OnBoarderCoordinatorLayout;
+import com.skyllabler.onboardercoordinator.view.behaviour.OnBoarderPageBehaviour;
+import com.skyllabler.onboardercoordinator.view.widget.OnBoarderCoordinatorLayout;
 
 
 @SuppressWarnings("unused")

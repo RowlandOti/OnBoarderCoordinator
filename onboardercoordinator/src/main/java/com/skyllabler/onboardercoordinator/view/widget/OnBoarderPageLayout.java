@@ -1,4 +1,4 @@
-package com.skyllabler.onboardercoordinator.views.widget;
+package com.skyllabler.onboardercoordinator.view.widget;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
 import com.skyllabler.onboardercoordinator.R;
-import com.skyllabler.onboardercoordinator.views.behaviour.OnBoarderPageBehaviour;
+import com.skyllabler.onboardercoordinator.view.behaviour.OnBoarderPageBehaviour;
 
 import java.lang.reflect.Constructor;
 import java.util.ArrayList;

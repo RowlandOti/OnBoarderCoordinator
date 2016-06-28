@@ -29,8 +29,8 @@ import android.view.View;
 import android.view.animation.LinearInterpolator;
 import android.widget.FrameLayout;
 
-import com.skyllabler.onboardercoordinator.views.behaviour.OnBoarderPageBehaviour;
-import com.skyllabler.onboardercoordinator.views.widget.OnBoarderCoordinatorLayout;
+import com.skyllabler.onboardercoordinator.view.behaviour.OnBoarderPageBehaviour;
+import com.skyllabler.onboardercoordinator.view.widget.OnBoarderCoordinatorLayout;
 
 
 @SuppressWarnings("unused")

@@ -5,7 +5,6 @@ import android.animation.ValueAnimator;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.content.res.ResourcesCompat;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
@@ -13,7 +12,7 @@ import com.skyllabler.onboardercoordinator.sample.R;
 import com.skyllabler.onboardercoordinator.sample.animators.ChatAvatarsAnimator;
 import com.skyllabler.onboardercoordinator.sample.animators.InSyncAnimator;
 import com.skyllabler.onboardercoordinator.sample.animators.RocketAvatarsAnimator;
-import com.skyllabler.onboardercoordinator.views.widget.OnBoarderCoordinatorLayout;
+import com.skyllabler.onboardercoordinator.view.widget.OnBoarderCoordinatorLayout;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -42,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
     private void initializePages() {
         final OnBoarderCoordinatorLayout coordinatorLayout = (OnBoarderCoordinatorLayout) findViewById(R.id.coordinator);
         coordinatorLayout.addPage(R.layout.welcome_page_1, R.layout.welcome_page_2, R.layout.welcome_page_3);
+
     }
 
     private void initializeListeners() {

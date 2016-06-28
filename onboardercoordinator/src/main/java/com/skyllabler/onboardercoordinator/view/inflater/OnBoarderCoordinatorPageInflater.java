@@ -1,4 +1,4 @@
-package com.skyllabler.onboardercoordinator.views.inflater;
+package com.skyllabler.onboardercoordinator.view.inflater;
 
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.skyllabler.onboardercoordinator.views.widget.OnBoarderCoordinatorLayout;
+import com.skyllabler.onboardercoordinator.view.widget.OnBoarderCoordinatorLayout;
 
 public class OnBoarderCoordinatorPageInflater {
     private final OnBoarderCoordinatorLayout view;

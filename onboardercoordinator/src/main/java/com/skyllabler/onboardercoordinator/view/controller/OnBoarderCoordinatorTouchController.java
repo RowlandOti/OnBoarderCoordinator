@@ -1,15 +1,14 @@
-package com.skyllabler.onboardercoordinator.views.controller;
+package com.skyllabler.onboardercoordinator.view.controller;
 
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
-import android.content.Context;
 import android.os.Build;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.ViewTreeObserver;
 
-import com.skyllabler.onboardercoordinator.views.widget.OnBoarderCoordinatorLayout;
+import com.skyllabler.onboardercoordinator.view.widget.OnBoarderCoordinatorLayout;
 
 public class OnBoarderCoordinatorTouchController {
 
@@ -53,8 +52,7 @@ public class OnBoarderCoordinatorTouchController {
         view.getViewTreeObserver().addOnScrollChangedListener(new ViewTreeObserver.OnScrollChangedListener() {
             @Override
             public void onScrollChanged() {
-                view.notifyProgressScroll(view.getScrollX() / (float) view.getWidth(),
-                        view.getScrollX());
+                view.notifyProgressScroll(view.getScrollX() / (float) view.getWidth(), view.getScrollX());
             }
         });
     }

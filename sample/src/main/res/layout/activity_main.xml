@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context="com.skyllabler.onboardercoordinator.sample.view.activity.MainActivity">
 
-    <com.skyllabler.onboardercoordinator.views.widget.OnBoarderCoordinatorLayout
+    <com.skyllabler.onboardercoordinator.view.widget.OnBoarderCoordinatorLayout
         android:id="@+id/coordinator"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

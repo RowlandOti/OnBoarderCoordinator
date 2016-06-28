@@ -1,4 +1,4 @@
-package com.skyllabler.onboardercoordinator.views.widget;
+package com.skyllabler.onboardercoordinator.view.widget;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -17,9 +17,9 @@ import android.widget.FrameLayout;
 import android.widget.HorizontalScrollView;
 
 import com.skyllabler.onboardercoordinator.R;
-import com.skyllabler.onboardercoordinator.views.behaviour.OnBoarderPageBehaviour;
-import com.skyllabler.onboardercoordinator.views.controller.OnBoarderCoordinatorTouchController;
-import com.skyllabler.onboardercoordinator.views.inflater.OnBoarderCoordinatorPageInflater;
+import com.skyllabler.onboardercoordinator.view.behaviour.OnBoarderPageBehaviour;
+import com.skyllabler.onboardercoordinator.view.controller.OnBoarderCoordinatorTouchController;
+import com.skyllabler.onboardercoordinator.view.inflater.OnBoarderCoordinatorPageInflater;
 
 import java.util.ArrayList;
 import java.util.List;

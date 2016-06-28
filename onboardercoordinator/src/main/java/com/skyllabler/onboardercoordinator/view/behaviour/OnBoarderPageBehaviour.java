@@ -1,11 +1,11 @@
-package com.skyllabler.onboardercoordinator.views.behaviour;
+package com.skyllabler.onboardercoordinator.view.behaviour;
 
 import android.os.Build;
 import android.view.View;
 import android.view.ViewTreeObserver;
 
-import com.skyllabler.onboardercoordinator.views.widget.OnBoarderCoordinatorLayout;
-import com.skyllabler.onboardercoordinator.views.widget.OnBoarderPageLayout;
+import com.skyllabler.onboardercoordinator.view.widget.OnBoarderCoordinatorLayout;
+import com.skyllabler.onboardercoordinator.view.widget.OnBoarderPageLayout;
 
 public abstract class OnBoarderPageBehaviour {
 
