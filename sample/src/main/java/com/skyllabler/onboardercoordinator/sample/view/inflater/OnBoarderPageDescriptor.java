@@ -1,5 +1,7 @@
 package com.skyllabler.onboardercoordinator.sample.view.inflater;
 
+import android.util.SparseIntArray;
+
 import com.skyllabler.onboardercoordinator.sample.R;
 import com.skyllabler.onboardercoordinator.view.inflater.AOnBoarderPageDescriptor;
 

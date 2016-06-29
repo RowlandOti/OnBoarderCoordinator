@@ -6,18 +6,27 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.skyllabler.onboardercoordinator.view.behaviour.OnBoarderBehaviourExtractor;
+import com.skyllabler.onboardercoordinator.view.behaviour.OnBoarderPageBehaviour;
 import com.skyllabler.onboardercoordinator.view.inflater.AOnBoarderPageDescriptor;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class OnBoarderPagerAdapter extends PagerAdapter {
 
     private final AOnBoarderPageDescriptor<Integer, Integer> mOnBoaderPageDescriptor;
     private Context mContext;
-    private LayoutInflater mLayoutInflater;
 
-    public OnBoarderPagerAdapter(Context context, AOnBoarderPageDescriptor<Integer, Integer> onBoarderPageDescriptor) {
-        this.mContext = context;
+    private OnBoarderBehaviourExtractor mBehaviourExtractor;
+    private LayoutInflater mLayoutInflater;
+    private List<OnBoarderPageBehaviour> mBehaviors;
+
+    public OnBoarderPagerAdapter(Context ctx, AOnBoarderPageDescriptor<Integer, Integer> descriptor) {
+        this.mContext = ctx;
         this.mLayoutInflater = LayoutInflater.from(mContext);
-        this.mOnBoaderPageDescriptor = onBoarderPageDescriptor;
+        this.mOnBoaderPageDescriptor = descriptor;
+        this.mBehaviors = new ArrayList<>();
     }
 
     // Returns the number of pages to be displayed in the ViewPager.
@@ -35,13 +44,13 @@ public class OnBoarderPagerAdapter extends PagerAdapter {
     // This method should create the page for the given position passed to it as an argument.
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
-        // Inflate the layout for the page
         ViewGroup pageView = (ViewGroup) mLayoutInflater.inflate(mOnBoaderPageDescriptor.getDescriptorTypeList().get(position).getKey(), container, false);
-        // Set the background color
         pageView.setBackgroundColor(mOnBoaderPageDescriptor.getDescriptorTypeList().get(position).getValue());
-        // Add the page to the container
+        final List<OnBoarderPageBehaviour> pageBehaviors = mBehaviourExtractor.extractPageBehaviors(pageView);
+        if (!pageBehaviors.isEmpty()) {
+            this.mBehaviors.addAll(pageBehaviors);
+        }
         container.addView(pageView);
-        // Return the page
         return pageView;
     }
 
@@ -49,5 +58,15 @@ public class OnBoarderPagerAdapter extends PagerAdapter {
     @Override
     public void destroyItem(ViewGroup container, int position, Object object) {
         container.removeView((View) object);
+    }
+
+    public void notifyProgressScroll(float progress, float scroll) {
+        for (OnBoarderPageBehaviour onBoarderPageBehavior : mBehaviors) {
+            onBoarderPageBehavior.onPlaytimeChange(mBehaviourExtractor.getOnBoarderCoordinatorViewPager(), progress, scroll);
+        }
+    }
+
+    public void setBehaviourExtractor(OnBoarderBehaviourExtractor mBehaviourExtractor) {
+        this.mBehaviourExtractor = mBehaviourExtractor;
     }
 }

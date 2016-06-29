@@ -82,8 +82,7 @@
         android:layout_marginRight="20dp"
         android:layout_marginTop="10dp"
         android:visibility="invisible"
-        app:destiny="@+id/android_destiny"
-        app:view_behavior=".view.behaviour.AnimationFlightTo">
+        app:destiny="@+id/android_destiny">
 
         <ImageView
             android:id="@+id/star_shadow"

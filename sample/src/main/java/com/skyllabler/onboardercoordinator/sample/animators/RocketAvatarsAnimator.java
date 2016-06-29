@@ -36,9 +36,9 @@ import com.skyllabler.onboardercoordinator.sample.R;
 
 
 public class RocketAvatarsAnimator {
+    private final View rootView;
     private AnimatorSet animator;
     private Animator rocketFlameAnimator;
-    private final View rootView;
 
     public RocketAvatarsAnimator(View rootView) {
         this.rootView = rootView;

@@ -25,12 +25,12 @@
 package com.skyllabler.onboardercoordinator.sample.view.behaviour;
 
 import android.animation.ObjectAnimator;
+import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
-import android.widget.FrameLayout;
 
 import com.skyllabler.onboardercoordinator.view.behaviour.OnBoarderPageBehaviour;
-import com.skyllabler.onboardercoordinator.view.widget.OnBoarderCoordinatorLayout;
+import com.skyllabler.onboardercoordinator.view.widget.OnBoarderCoordinatorViewPager;
 
 
 @SuppressWarnings("unused")
@@ -39,23 +39,23 @@ public class ParallaxTitleBehaviour extends OnBoarderPageBehaviour {
     private ObjectAnimator parallaxAnimator;
 
     @Override
-    protected void onCreate(OnBoarderCoordinatorLayout coordinator) {
-        final FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) getPage().getLayoutParams();
+    protected void onCreate(OnBoarderCoordinatorViewPager coordinator) {
+        final ViewPager.LayoutParams params = (ViewPager.LayoutParams) getPage().getLayoutParams();
         long startDelay;
         long duration;
         float rightTranslation;
         float leftTranslation;
-        if (params.leftMargin == 0) {
+        /*if (params.leftMargin == 0) {*/
             startDelay = 0;
             duration = getPage().getMeasuredWidth();
             rightTranslation = 0;
             leftTranslation = -(duration / PARALLAX_FACTOR);
-        } else {
-            startDelay = (params.leftMargin - coordinator.getMeasuredWidth());
+        /*} else {
+            startDelay = params.leftMargin - coordinator.getMeasuredWidth();
             duration = (getPage().getMeasuredWidth() * 2);
             rightTranslation = (duration / PARALLAX_FACTOR);
             leftTranslation = -(duration / PARALLAX_FACTOR);
-        }
+        }*/
         parallaxAnimator = ObjectAnimator.ofFloat(getTargetView(), View.TRANSLATION_X, rightTranslation, leftTranslation);
         parallaxAnimator.setInterpolator(new LinearInterpolator());
         parallaxAnimator.setTarget(getTargetView());
@@ -64,7 +64,7 @@ public class ParallaxTitleBehaviour extends OnBoarderPageBehaviour {
     }
 
     @Override
-    public void onPlaytimeChange(OnBoarderCoordinatorLayout coordinator, float newPlaytime, float newScrollPosition) {
+    public void onPlaytimeChange(OnBoarderCoordinatorViewPager coordinator, float newPlaytime, float newScrollPosition) {
         long currentPlaytime = (long) newScrollPosition;
         if (newScrollPosition >= parallaxAnimator.getStartDelay()) {
             currentPlaytime = (long) (newScrollPosition - parallaxAnimator.getStartDelay());

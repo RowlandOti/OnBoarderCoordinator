@@ -6,13 +6,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.skyllabler.onboardercoordinator.view.widget.OnBoarderCoordinatorLayout;
+import com.skyllabler.onboardercoordinator.view.widget.OnBoarderCoordinatorViewPager;
 
 public class OnBoarderCoordinatorPageInflater {
-    private final OnBoarderCoordinatorLayout view;
+    private final OnBoarderCoordinatorViewPager view;
     private final LayoutInflater inflater;
 
-    public OnBoarderCoordinatorPageInflater(@NonNull OnBoarderCoordinatorLayout view) {
+    public OnBoarderCoordinatorPageInflater(@NonNull OnBoarderCoordinatorViewPager view) {
         this.view = view;
         this.inflater = LayoutInflater.from(view.getContext());
     }

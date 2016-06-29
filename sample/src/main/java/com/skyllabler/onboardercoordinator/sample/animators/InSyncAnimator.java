@@ -34,8 +34,8 @@ import com.skyllabler.onboardercoordinator.sample.R;
 
 
 public class InSyncAnimator {
-    private AnimatorSet animator;
     private final View rootView;
+    private AnimatorSet animator;
 
     public InSyncAnimator(View rootView) {
         this.rootView = rootView;

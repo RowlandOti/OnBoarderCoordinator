@@ -29,7 +29,7 @@ import android.view.View;
 import android.view.animation.LinearInterpolator;
 
 import com.skyllabler.onboardercoordinator.view.behaviour.OnBoarderPageBehaviour;
-import com.skyllabler.onboardercoordinator.view.widget.OnBoarderCoordinatorLayout;
+import com.skyllabler.onboardercoordinator.view.widget.OnBoarderCoordinatorViewPager;
 
 
 @SuppressWarnings("unused")
@@ -39,7 +39,7 @@ public class AnimationLaunch extends OnBoarderPageBehaviour {
     private ObjectAnimator objectAnimatorX;
 
     @Override
-    protected void onCreate(OnBoarderCoordinatorLayout coordinator) {
+    protected void onCreate(OnBoarderCoordinatorViewPager coordinator) {
         objectAnimatorY = ObjectAnimator.ofFloat(getTargetView(), View.TRANSLATION_Y, 0, -getTargetView().getTop() - getTargetView().getHeight());
         objectAnimatorY.setDuration(DURATION);
         objectAnimatorY.setInterpolator(new LinearInterpolator());
@@ -49,7 +49,7 @@ public class AnimationLaunch extends OnBoarderPageBehaviour {
     }
 
     @Override
-    public void onPlaytimeChange(OnBoarderCoordinatorLayout coordinator, float newPlaytime, float newScrollPosition) {
+    public void onPlaytimeChange(OnBoarderCoordinatorViewPager coordinator, float newPlaytime, float newScrollPosition) {
         if (newPlaytime < 1) {
             long playTime = (long) (newPlaytime * DURATION);
             objectAnimatorY.setCurrentPlayTime(playTime);

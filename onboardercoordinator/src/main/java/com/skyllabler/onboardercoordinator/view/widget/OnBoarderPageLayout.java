@@ -57,7 +57,7 @@ public class OnBoarderPageLayout extends RelativeLayout {
         return new LayoutParams(getContext(), attrs);
     }
 
-    List<OnBoarderPageBehaviour> getBehaviors(OnBoarderCoordinatorLayout coordinatorLayout) {
+    public List<OnBoarderPageBehaviour> getBehaviors(OnBoarderCoordinatorViewPager coordinatorLayout) {
         List<OnBoarderPageBehaviour> result = new ArrayList<>();
         for (int index = 0; index < getChildCount(); index++) {
             final View view = getChildAt(index);
@@ -80,14 +80,6 @@ public class OnBoarderPageLayout extends RelativeLayout {
         private int destinyViewId = NO_DESTINY_VIEW;
         private OnBoarderPageBehaviour behavior;
 
-        public OnBoarderPageBehaviour getBehavior() {
-            return behavior;
-        }
-
-        public int getDestinyViewId() {
-            return destinyViewId;
-        }
-
         public LayoutParams(int width, int height) {
             super(width, height);
         }
@@ -103,6 +95,20 @@ public class OnBoarderPageLayout extends RelativeLayout {
         public LayoutParams(Context context, AttributeSet attrs) {
             super(context, attrs);
             extractAttributes(context, attrs);
+        }
+
+        @SuppressWarnings("unused")
+        @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+        public LayoutParams(RelativeLayout.LayoutParams source) {
+            super(source);
+        }
+
+        public OnBoarderPageBehaviour getBehavior() {
+            return behavior;
+        }
+
+        public int getDestinyViewId() {
+            return destinyViewId;
         }
 
         private void extractAttributes(Context context, AttributeSet attrs) {
@@ -135,12 +141,6 @@ public class OnBoarderPageLayout extends RelativeLayout {
                 }
             }
             return result;
-        }
-
-        @SuppressWarnings("unused")
-        @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-        public LayoutParams(RelativeLayout.LayoutParams source) {
-            super(source);
         }
     }
 

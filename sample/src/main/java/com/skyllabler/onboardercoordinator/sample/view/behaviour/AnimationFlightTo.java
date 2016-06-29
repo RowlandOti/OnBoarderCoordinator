@@ -31,7 +31,7 @@ import android.view.animation.LinearInterpolator;
 
 import com.skyllabler.onboardercoordinator.sample.R;
 import com.skyllabler.onboardercoordinator.view.behaviour.OnBoarderPageBehaviour;
-import com.skyllabler.onboardercoordinator.view.widget.OnBoarderCoordinatorLayout;
+import com.skyllabler.onboardercoordinator.view.widget.OnBoarderCoordinatorViewPager;
 
 
 @SuppressWarnings("unused")
@@ -50,7 +50,7 @@ public class AnimationFlightTo extends OnBoarderPageBehaviour {
     private ObjectAnimator objectAnimatorScaleY;
 
     @Override
-    protected void onCreate(OnBoarderCoordinatorLayout coordinator) {
+    protected void onCreate(OnBoarderCoordinatorViewPager coordinator) {
         configureTranslation();
         configureScale();
     }
@@ -89,7 +89,7 @@ public class AnimationFlightTo extends OnBoarderPageBehaviour {
         int x = view.getLeft();
         int y = view.getTop();
         View parent = (View) view.getParent();
-        while (parent != null && !(parent instanceof OnBoarderCoordinatorLayout)) {
+        while (parent != null && !(parent instanceof OnBoarderCoordinatorViewPager)) {
             x += parent.getLeft();
             y += parent.getTop();
             parent = (View) parent.getParent();
@@ -99,7 +99,7 @@ public class AnimationFlightTo extends OnBoarderPageBehaviour {
     }
 
     @Override
-    public void onPlaytimeChange(OnBoarderCoordinatorLayout coordinator, float newPlaytime, float newScrollPosition) {
+    public void onPlaytimeChange(OnBoarderCoordinatorViewPager coordinator, float newPlaytime, float newScrollPosition) {
         if (newPlaytime <= INIT_TIME) {
             setCurrentTimeInAllAnimators(0);
         } else if (newPlaytime > INIT_TIME && newPlaytime <= FINAL_TIME) {

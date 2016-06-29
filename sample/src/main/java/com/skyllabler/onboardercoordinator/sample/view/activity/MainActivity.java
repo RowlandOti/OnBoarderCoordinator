@@ -12,7 +12,10 @@ import com.skyllabler.onboardercoordinator.sample.R;
 import com.skyllabler.onboardercoordinator.sample.animators.ChatAvatarsAnimator;
 import com.skyllabler.onboardercoordinator.sample.animators.InSyncAnimator;
 import com.skyllabler.onboardercoordinator.sample.animators.RocketAvatarsAnimator;
-import com.skyllabler.onboardercoordinator.view.widget.OnBoarderCoordinatorLayout;
+import com.skyllabler.onboardercoordinator.sample.view.inflater.OnBoarderPageDescriptor;
+import com.skyllabler.onboardercoordinator.view.adapter.OnBoarderPagerAdapter;
+import com.skyllabler.onboardercoordinator.view.behaviour.OnBoarderBehaviourExtractor;
+import com.skyllabler.onboardercoordinator.view.widget.OnBoarderCoordinatorViewPager;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -20,10 +23,11 @@ import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
 
+    OnBoarderPagerAdapter onBoarderPagerAdapter;
+    @Bind(R.id.viewpager)
+    OnBoarderCoordinatorViewPager coordinatorViewPager;
     private boolean animationReady = false;
     private ValueAnimator backgroundAnimator;
-    @Bind(R.id.coordinator)
-    OnBoarderCoordinatorLayout coordinatorLayout;
     private RocketAvatarsAnimator rocketAvatarsAnimator;
     private ChatAvatarsAnimator chatAvatarsAnimator;
     private InSyncAnimator inSyncAnimator;
@@ -35,24 +39,24 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         initializeListeners();
         initializePages();
-        initializeBackgroundTransitions();
+        //initializeBackgroundTransitions();
     }
 
     private void initializePages() {
-        final OnBoarderCoordinatorLayout coordinatorLayout = (OnBoarderCoordinatorLayout) findViewById(R.id.coordinator);
-        coordinatorLayout.addPage(R.layout.welcome_page_1, R.layout.welcome_page_2, R.layout.welcome_page_3);
-
+        onBoarderPagerAdapter = new OnBoarderPagerAdapter(this, new OnBoarderPageDescriptor());
+        coordinatorViewPager.setAdapter(onBoarderPagerAdapter);
+        onBoarderPagerAdapter.setBehaviourExtractor(new OnBoarderBehaviourExtractor(coordinatorViewPager));
     }
 
     private void initializeListeners() {
-        coordinatorLayout.setOnPageScrollListener(new OnBoarderCoordinatorLayout.OnPageScrollListener() {
+        coordinatorViewPager.setOnPageScrollListener(new OnBoarderCoordinatorViewPager.OnPageScrollListener() {
             @Override
             public void onScrollPage(View v, float progress, float maximum) {
                 if (!animationReady) {
                     animationReady = true;
-                    backgroundAnimator.setDuration((long) maximum);
+                    //backgroundAnimator.setDuration((long) maximum);
                 }
-                backgroundAnimator.setCurrentPlayTime((long) progress);
+                //backgroundAnimator.setCurrentPlayTime((long) progress);
             }
 
             @Override
@@ -60,19 +64,19 @@ public class MainActivity extends AppCompatActivity {
                 switch (pageSelected) {
                     case 0:
                         if (rocketAvatarsAnimator == null) {
-                            rocketAvatarsAnimator = new RocketAvatarsAnimator(coordinatorLayout);
+                            rocketAvatarsAnimator = new RocketAvatarsAnimator(coordinatorViewPager);
                             rocketAvatarsAnimator.play();
                         }
                         break;
                     case 1:
                         if (chatAvatarsAnimator == null) {
-                            chatAvatarsAnimator = new ChatAvatarsAnimator(coordinatorLayout);
+                            chatAvatarsAnimator = new ChatAvatarsAnimator(coordinatorViewPager);
                             chatAvatarsAnimator.play();
                         }
                         break;
                     case 2:
                         if (inSyncAnimator == null) {
-                            inSyncAnimator = new InSyncAnimator(coordinatorLayout);
+                            inSyncAnimator = new InSyncAnimator(coordinatorViewPager);
                             inSyncAnimator.play();
                         }
                         break;
@@ -91,13 +95,13 @@ public class MainActivity extends AppCompatActivity {
         backgroundAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
-                coordinatorLayout.setBackgroundColor((int) animation.getAnimatedValue());
+                coordinatorViewPager.setBackgroundColor((int) animation.getAnimatedValue());
             }
         });
     }
 
     @OnClick(R.id.skip)
     void skip() {
-        coordinatorLayout.setCurrentPage(coordinatorLayout.getNumOfPages() - 1, true);
+
     }
 }

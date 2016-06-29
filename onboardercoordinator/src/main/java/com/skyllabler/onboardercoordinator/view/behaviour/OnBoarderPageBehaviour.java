@@ -1,26 +1,31 @@
 package com.skyllabler.onboardercoordinator.view.behaviour;
 
 import android.os.Build;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewTreeObserver;
 
-import com.skyllabler.onboardercoordinator.view.widget.OnBoarderCoordinatorLayout;
+import com.skyllabler.onboardercoordinator.view.widget.OnBoarderCoordinatorViewPager;
 import com.skyllabler.onboardercoordinator.view.widget.OnBoarderPageLayout;
 
 public abstract class OnBoarderPageBehaviour {
 
     private final static int NO_DESTINY_VIEW = -1;
-    protected OnBoarderCoordinatorLayout coordinatorLayout;
+    protected OnBoarderCoordinatorViewPager coordinatorLayout;
+    private OnBoarderPageLayout page;
     private View targetView;
     private View destinyView;
-    private OnBoarderPageLayout page;
 
-    protected abstract void onCreate(OnBoarderCoordinatorLayout coordinator);
+    protected abstract void onCreate(OnBoarderCoordinatorViewPager coordinator);
 
-    public abstract void onPlaytimeChange(OnBoarderCoordinatorLayout coordinator, float newPlaytime, float newScrollPosition);
+    public abstract void onPlaytimeChange(OnBoarderCoordinatorViewPager coordinator, float newPlaytime, float newScrollPosition);
 
     protected OnBoarderPageLayout getPage() {
         return page;
+    }
+
+    public void setPage(OnBoarderPageLayout page) {
+        this.page = page;
     }
 
     protected View getTargetView() {
@@ -32,12 +37,15 @@ public abstract class OnBoarderPageBehaviour {
             int destinyViewId = ((OnBoarderPageLayout.LayoutParams) targetView.getLayoutParams()).getDestinyViewId();
             if (destinyViewId != NO_DESTINY_VIEW) {
                 destinyView = coordinatorLayout.findViewById(destinyViewId);
+                int c = coordinatorLayout.getChildCount();
+                Log.d(OnBoarderPageBehaviour.class.getSimpleName(),"Child Count" +c);
+                Log.d(OnBoarderPageBehaviour.class.getSimpleName(),"Destiny Id is not Null" +destinyViewId);
             }
         }
         return destinyView;
     }
 
-    public void setCoordinator(OnBoarderCoordinatorLayout coordinator) {
+    public void setCoordinator(OnBoarderCoordinatorViewPager coordinator) {
         this.coordinatorLayout = coordinator;
         this.coordinatorLayout.getViewTreeObserver()
                 .addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
@@ -51,10 +59,6 @@ public abstract class OnBoarderPageBehaviour {
                         }
                     }
                 });
-    }
-
-    public void setPage(OnBoarderPageLayout page) {
-        this.page = page;
     }
 
     public void setTarget(View target) {

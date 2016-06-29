@@ -33,8 +33,8 @@ import android.view.animation.OvershootInterpolator;
 import com.skyllabler.onboardercoordinator.sample.R;
 
 public class ChatAvatarsAnimator {
-    private AnimatorSet animator;
     private final View rootView;
+    private AnimatorSet animator;
 
     public ChatAvatarsAnimator(View rootView) {
         this.rootView = rootView;
