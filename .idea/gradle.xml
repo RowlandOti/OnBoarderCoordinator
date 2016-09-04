@@ -9,6 +9,8 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/onboardercoordinator" />
+            <option value="$PROJECT_DIR$/onboardercoordinator-annotation" />
+            <option value="$PROJECT_DIR$/onboardercoordinator-processor" />
             <option value="$PROJECT_DIR$/sample" />
           </set>
         </option>
@@ -16,6 +18,8 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/onboardercoordinator" />
+            <option value="$PROJECT_DIR$/onboardercoordinator-annotation" />
+            <option value="$PROJECT_DIR$/onboardercoordinator-processor" />
             <option value="$PROJECT_DIR$/sample" />
           </set>
         </option>

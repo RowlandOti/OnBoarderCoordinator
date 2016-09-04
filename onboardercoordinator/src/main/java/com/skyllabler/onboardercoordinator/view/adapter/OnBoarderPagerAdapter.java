@@ -2,6 +2,7 @@ package com.skyllabler.onboardercoordinator.view.adapter;
 
 import android.content.Context;
 import android.support.v4.view.PagerAdapter;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,6 +52,7 @@ public class OnBoarderPagerAdapter extends PagerAdapter {
             this.mBehaviors.addAll(pageBehaviors);
         }
         container.addView(pageView);
+        Log.d(OnBoarderPagerAdapter.class.getSimpleName(), "Child Count" + container.getChildCount());
         return pageView;
     }
 

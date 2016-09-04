@@ -4,6 +4,9 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/OnBoarderCoordinator.iml" filepath="$PROJECT_DIR$/OnBoarderCoordinator.iml" />
       <module fileurl="file://$PROJECT_DIR$/onboardercoordinator/onboardercoordinator.iml" filepath="$PROJECT_DIR$/onboardercoordinator/onboardercoordinator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/onboardercoordinator-annotation/onboardercoordinator-annotation.iml" filepath="$PROJECT_DIR$/onboardercoordinator-annotation/onboardercoordinator-annotation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/onboardercoordinator-processor/onboardercoordinator-processor.iml" filepath="$PROJECT_DIR$/onboardercoordinator-processor/onboardercoordinator-processor.iml" />
+      <module fileurl="file://$PROJECT_DIR$/onboardercoordinator-processor/onboardercoordinatorprocessor.iml" filepath="$PROJECT_DIR$/onboardercoordinator-processor/onboardercoordinatorprocessor.iml" />
       <module fileurl="file://$PROJECT_DIR$/sample/sample.iml" filepath="$PROJECT_DIR$/sample/sample.iml" />
     </modules>
   </component>

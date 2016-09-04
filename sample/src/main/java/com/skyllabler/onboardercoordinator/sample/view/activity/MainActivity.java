@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         initializeListeners();
         initializePages();
-        //initializeBackgroundTransitions();
+        // initializeBackgroundTransitions();
     }
 
     private void initializePages() {

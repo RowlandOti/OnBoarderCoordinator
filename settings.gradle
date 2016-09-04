@@ -1,1 +1,1 @@
-include ':sample', ':onboardercoordinator'
+include ':sample', ':onboardercoordinator', ':onboardercoordinator-processor', ':onboardercoordinator-annotation'

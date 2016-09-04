@@ -76,8 +76,10 @@ public class OnBoarderPageLayout extends RelativeLayout {
     }
 
     public static class LayoutParams extends RelativeLayout.LayoutParams {
+
         public final static int NO_DESTINY_VIEW = -1;
         private int destinyViewId = NO_DESTINY_VIEW;
+
         private OnBoarderPageBehaviour behavior;
 
         public LayoutParams(int width, int height) {

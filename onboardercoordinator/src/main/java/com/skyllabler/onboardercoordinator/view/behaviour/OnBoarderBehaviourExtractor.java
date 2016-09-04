@@ -18,9 +18,11 @@ public class OnBoarderBehaviourExtractor {
 
     public List<OnBoarderPageBehaviour> extractPageBehaviors(View view) {
         List<OnBoarderPageBehaviour> behaviors = new ArrayList<>();
+
         if (view instanceof OnBoarderPageLayout) {
             final OnBoarderPageLayout pageLayout = (OnBoarderPageLayout) view;
             final List<OnBoarderPageBehaviour> pageBehaviors = pageLayout.getBehaviors(mOnBoarderCoordinatorViewPager);
+
             if (!pageBehaviors.isEmpty()) {
                 behaviors.addAll(pageBehaviors);
             }
