@@ -27,6 +27,8 @@ import javax.lang.model.util.Elements;
 import javax.lang.model.util.Types;
 import javax.tools.Diagnostic;
 
+// Tutorial from - http://hannesdorfmann.com/annotation-processing/annotationprocessing101, http://blog.stablekernel.com/the-10-step-guide-to-annotation-processing-in-android-studio, https://realm.io/news/writing-android-libraries/
+
 // Generates the META-INF/services/javax.annotation.processing.Processor file
 @AutoService(Processor.class)
 public class OnBoarderCoordinatorProcessor extends AbstractProcessor {
